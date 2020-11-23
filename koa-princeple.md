@@ -7,8 +7,7 @@
 ### KOA的中间件
 ---
 中间件其实就是函数，中间件函数返回的是一个promise对象
-Q:中间件函数前为什么加async？
-A:配合await使用，保证洋葱模型顺利执行
+
 ```
 const Koa = require('koa');
 
@@ -34,7 +33,9 @@ app.listen(3000)
 ```
 ### 洋葱模型
 ---
-中间件函数前要加async，next()前要加await（await可以理解为求值关键字，不仅可以跟promise，还可以求出表达式的值,也会阻塞当前线程）
+中间件函数前要加async(async返回的是一个包装好的promise函数)，next()前要加await（await可以理解为求值关键字，不仅可以跟promise，还可以求出表达式的值,也会阻塞当前线程）
+Q:中间件函数前为什么加async？
+A:配合await使用，保证洋葱模型顺利执行
 ```
 await 100*100
 ```
